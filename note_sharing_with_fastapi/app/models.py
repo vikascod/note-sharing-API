@@ -22,3 +22,13 @@ class Note(Base):
 
     user = relationship("User", back_populates="notes")
 
+
+class Share(Base):
+    __tablename__ = 'share_notes'
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    note_id = Column(Integer, ForeignKey('notes.id'))
+
+    user = relationship(User)
+    note = relationship(Note)

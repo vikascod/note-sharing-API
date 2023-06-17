@@ -22,6 +22,17 @@ class Note(NoteUpload):
     class Config():
         orm_mode=True
 
+
+class ShareNote(BaseModel):
+    user_id:int
+    note_id:int
+
+class Share(ShareNote):
+    id:int
+    class Config():
+        orm_mode=True
+
+
 class Login(BaseModel):
     username:EmailStr
     password:str
